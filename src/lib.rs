@@ -17,7 +17,7 @@ pub fn zone_cpus() -> Result<usize> {
         return Ok((cap / 100) as usize);
     }
 
-    kstat::ncpus().map_err(ZoneInfoError::from)
+    Ok(kstat::ncpus()?)
 }
 
 pub fn zoneid() -> Result<i32> {
